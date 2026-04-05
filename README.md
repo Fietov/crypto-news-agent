@@ -20,7 +20,7 @@ An Ai Agent that fetches real time crypto news from cryptopanic api and analyzes
 ## How to Set Up
 1. Clone the repo
 2. Install all the dependencies: ```pip install -r requirements.txt```
-3. Create '.env' file with your OWN API keys 
+3. Create '.env' file with your OWN API keys (Project is focused only on Groq AI, if you would like to use other llm, you will need to customize it.) 
     ```
     CRYPTOPANIC_API_KEY=your_key
     GROQ_API_KEY=your_key
