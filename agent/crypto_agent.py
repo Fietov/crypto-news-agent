@@ -22,7 +22,7 @@ class CryptoAgent:
         print("Fetching latest news...")
         articles = self.collector.fetch_latest(
             limit=self.limit,
-            currencies=self.currencies,
+            currencies=self.currencies
         )
 
         print(f"Analyzing {len(articles)} articles with LLM...")
