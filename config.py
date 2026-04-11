@@ -7,7 +7,7 @@ load_dotenv()
 class Config(BaseSettings):
     # API keys
     cryptopanic_api_key: str = os.getenv("CRYPTOPANIC_API_KEY","")
-    groq_api_key: str = os.getenv("CRYPTOPANIC_API_KEY","")
+    groq_api_key: str = os.getenv("GROQ_API_KEY","")
 
     # Agent Settings
     default_limit: int = 10
