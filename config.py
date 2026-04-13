@@ -8,6 +8,7 @@ class Config(BaseSettings):
     # API keys
     cryptopanic_api_key: str = os.getenv("CRYPTOPANIC_API_KEY","")
     groq_api_key: str = os.getenv("GROQ_API_KEY","")
+    news_data_api_key: str = os.getenv("NEWS_DATA","")
 
     # Agent Settings
     default_limit: int = 10
