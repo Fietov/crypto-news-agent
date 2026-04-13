@@ -4,6 +4,7 @@ from datetime import datetime
 from config import config
 
 class NewsCollector:
+    BASE_URL = "https://newsdata.io/api/1"
 
     # init method for remembering info that is in
     def __init__(self, api_key: str):
@@ -24,25 +25,25 @@ class NewsCollector:
             uppercased = []
             for currency in currencies:
                 uppercased.append(currency.upper())
+            params["q"] = " OR ".join(uppercased)
 
             params["currencies"] = ",".join(uppercased)
 
         # making the request
         response = requests.get(url,params=params)
         # convert to dict
-        print(response.status_code)
-        print(response.url)
-        print(response.text[:500])
         data = response.json()
 
         articles = []
         for item in data["results"]:
+            coins = item.get("coins") or []
+
             article = NewsArticle(
-                title = item["title"],
+                title = item.get("title",""),
                 description = item.get("description"),
-                published_at = datetime.fromisoformat(item["created_at"]),
-                kind = item["kind"],
-                coins_mentioned = []
+                published_at = datetime.fromisoformat((item.get("pubDate", datetime.now().isoformat()))),
+                kind = "news",
+                coins_mentioned = coins
             )
             articles.append(article)
 
