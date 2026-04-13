@@ -11,13 +11,12 @@ class NewsCollector:
 
     def fetch_latest(self, limit: int = 10, currencies: list[str] = None) -> list[NewsArticle]:
         # the conditions for url in cryptopanic
-        url = f"{self.base_url}/posts/"
+        url = f"{self.BASE_URL}/crypto"
 
         # parameters that has to be sended
         params = {
-            "auth_token": self.api_key,
-            "public": "true",
-            "limit": limit
+            "apikey": self.api_key,
+            "language": "en",
         }
 
         # optional but useful, if user wants to pass in specific currencies
@@ -30,8 +29,10 @@ class NewsCollector:
 
         # making the request
         response = requests.get(url,params=params)
-
         # convert to dict
+        print(response.status_code)
+        print(response.url)
+        print(response.text[:500])
         data = response.json()
 
         articles = []
