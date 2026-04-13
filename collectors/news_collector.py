@@ -7,8 +7,7 @@ class NewsCollector:
 
     # init method for remembering info that is in
     def __init__(self, api_key: str):
-        self.api_key = config.cryptopanic_api_key
-        self.base_url = "https://cryptopanic.com/api/developer/v2"
+        self.api_key = config.news_data_api_key
 
     def fetch_latest(self, limit: int = 10, currencies: list[str] = None) -> list[NewsArticle]:
         # the conditions for url in cryptopanic
