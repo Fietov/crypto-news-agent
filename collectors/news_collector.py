@@ -4,15 +4,15 @@ from datetime import datetime
 from config import config
 
 class NewsCollector:
-    BASE_URL = "https://newsdata.io/api/1"
 
     # init method for remembering info that is in
-    def __init__(self, api_key: str):
+    def __init__(self):
         self.api_key = config.news_data_api_key
+        self.base_url = "https://newsdata.io/api/1"
 
     def fetch_latest(self, limit: int = 10, currencies: list[str] = None) -> list[NewsArticle]:
         # the conditions for url in cryptopanic
-        url = f"{self.BASE_URL}/crypto"
+        url = f"{self.base_url}/crypto"
 
         # parameters that has to be sended
         params = {
