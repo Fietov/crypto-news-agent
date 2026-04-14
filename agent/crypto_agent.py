@@ -15,7 +15,7 @@ class CryptoAgent:
     def __init__(self, limit: int = 10, currencies: list[str] = None):
         self.limit = config.default_limit
         self.currencies = currencies
-        self.collector = NewsCollector(config.cryptopanic_api_key)
+        self.collector = NewsCollector()
         self.analyzer = NewsAnalyzer()
 
     def run(self) -> Report:
