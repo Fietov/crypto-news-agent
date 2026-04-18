@@ -40,4 +40,5 @@ crypto_news_agent/
 -- agent/           # Main agent orchestration
 -- config.py        # Centralized settings
 -- main.py          # Entry point
+-- telegram_bot     # Extracting results to the telegram (in process)
 ```
