@@ -1,13 +1,17 @@
 import os
 from dotenv import load_dotenv
 from agent.crypto_agent import CryptoAgent
+from telegram_bot.message import TelegramBot
 
 load_dotenv()
 
 agent = CryptoAgent()
 report = agent.run()
-
 agent.save_report(report)
+
+# Telegram part
+bot = TelegramBot()
+bot.send_report(report)
 
 print("\n" + "="*50)
 print(f" CRYPTO MARKET REPORT")
