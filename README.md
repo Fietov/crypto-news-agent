@@ -28,7 +28,20 @@ An Ai Agent that fetches real time crypto news from NewsData api and analyzes ma
     LANGSMITH_API_KEY=your_key
     LANGSMITH_TRACING=true
     LANGSMITH_PROJECT=Crypto_Agent
+    TELEGRAM_BOT_TOKEN=your_key (optional)
+    TELEGRAM_CHAT_ID=your_key (optional)
     ```
+## Setting up Telegram Bot (optional)
+```
+    1. Open Telegram and search for @BotFather
+    2. Send `/newbot`
+    3. Follow instructions to create your bot
+    4. Copy the token BotFather gives you → TELEGRAM_BOT_TOKEN
+    5. Send a message to your bot
+    6. Visit: `https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates`
+    7. Find `"id"` inside `"chat"` → TELEGRAM_CHAT_ID
+   ```
+   
 4. Run: ```python main.py```
 
 ## Project Structure
@@ -40,5 +53,5 @@ crypto_news_agent/
 -- agent/           # Main agent orchestration
 -- config.py        # Centralized settings
 -- main.py          # Entry point
--- telegram_bot     # Extracting results to the telegram (in process)
+-- telegram_bot     # Extracting results to the telegram (optional)
 ```
