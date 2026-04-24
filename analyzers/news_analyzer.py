@@ -24,7 +24,7 @@ class NewsAnalyzer:
             You are a crypto market analyst. Analyze this news article and respond in this EXACT format:
 
             SENTIMENT: [POSITIVE or NEGATIVE or NEUTRAL]
-            COINS: [comma separated coin symbols like BTC,ETH or NONE if no coins mentioned]
+            COINS: [ONLY return coin ticker symbols like BTC,ETH,XRP. If no specific coin ticker is mentioned return NONE. Never return text explanations.]
             REASON: [one sentence explaining market impact]
 
             News Title: {title}

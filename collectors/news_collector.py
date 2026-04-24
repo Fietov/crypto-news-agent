@@ -14,7 +14,7 @@ class NewsCollector:
         # the conditions for url in cryptopanic
         url = f"{self.base_url}/crypto"
 
-        # parameters that has to be sended
+        # parameters that has to be sent
         params = {
             "apikey": self.api_key,
             "language": "en",
@@ -27,16 +27,19 @@ class NewsCollector:
                 uppercased.append(currency.upper())
             params["q"] = " OR ".join(uppercased)
 
-            params["currencies"] = ",".join(uppercased)
 
         # making the request
         response = requests.get(url,params=params)
         # convert to dict
         data = response.json()
+        if data.get("status") != "success":
+            print(f"API Error: {data}")
+            return []
+
 
         articles = []
         for item in data["results"]:
-            coins = item.get("coins") or []
+            coins = item.get("coin") or []
 
             article = NewsArticle(
                 title = item.get("title",""),
